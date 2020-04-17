@@ -1,0 +1,61 @@
+import javafx.event.Event;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+
+public class ConnectFour_Model {
+	
+	protected ConnectFour_Controller controller;
+	protected ConnectFour_View view;
+	protected int player, player1, player2;
+	
+	public void addStone (MouseEvent e) {
+		if(changePlayersTurn(e,1) == player1) {
+		view.selectedStones[0][5] = view.circle.setFill(Color.RED);
+		} else { view.selectedStones[0][5] = view.circle.setFill(Color.YELLOW);
+		}
+	}
+	
+	public int changePlayersTurn(Event e, int player) {
+		if(player == player1){
+			player = player2;
+			view.currentPlayerLabel.setText("Gelb");
+			return player;
+			} else {
+			player = player1;
+			view.currentPlayerLabel.setText("Rot");
+			return player; 
+			}	
+	}
+
+	public Circle[][] startNewGame(MouseEvent e, Circle [][]) {
+
+	}
+
+	
+	public void winWaagrecht() {
+		
+	}
+	
+	public void winSenkrecht() {
+		
+	}
+	
+	public void winVertical() {
+		
+	}
+	
+	public void fullBoard() {
+		//if()
+		view.currentPlayerLabel.setText("Das Spiel ist zu ende. Volles Board!");
+	}
+	
+	public void fullColumn() {
+		//if()
+		view.currentPlayerLabel.setText("Die Splate die du ausgewählt hast ist voll. Suche eine andere aus!");
+	}
+	
+	public void displayMessage() {
+	
+	}
+}
